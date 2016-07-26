@@ -1,4 +1,4 @@
-# spheroInAction
+# Speed to Value Workshop - Sphero In Action
 
 1) npm install express
 
@@ -6,9 +6,9 @@
 
 3) Connect your Bluetooth to your Sphero
 
-4) Run app.j as root, e.g. sudo node app.js
+4) Run app.js as root, e.g. sudo node app.js
 
-5) From POSTMAN, SOAPUI, etc. send a Post command to port 3001 to the following API:
+5) From POSTMAN, SOAPUI, etc. send a POST request to port 3001 to the following API:
 
 
 http://IP:3001/sphero/shape/{shape}/color/{color}
