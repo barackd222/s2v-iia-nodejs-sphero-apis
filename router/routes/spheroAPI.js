@@ -1,5 +1,5 @@
 
-var move = require("../core/spheroCore");
+var sphero = require("../core/spheroCore");
 
 
 var routes = function(app) {
@@ -11,7 +11,7 @@ var routes = function(app) {
 			console.log("API + [" + req.url + "]");
 
 			// Let's make some shapes with colors:
-			move(shape, color);  					
+			sphero("shape", shape, color);  					
 		
   	} catch(ex){
   		res.status(500).json({error:"Something went wrong!", details:ex});
@@ -21,31 +21,25 @@ var routes = function(app) {
     res.status(202).end();
   });
 
-  app.post('/sphero/roll', function(req, res) {
+  app.post('/sphero/color/:color', function(req, res) {
   	try{
-  		//Do sphero things with the request
-  		console.log("API + [" + req.url + "]");
-				
-  	} catch(ex){
-  		res.status(500).json({error:"Something went wrong!", details:ex});
-  		return;
-  	}	
 
-    res.status(202).end();
-  });
+  		var color = req.params.color;
 
-  app.post('/sphero/colour', function(req, res) {
-  	try{
-  		//Do sphero things with the request
 			console.log("API + [" + req.url + "]");
+
+			// Let's change color:
+			sphero("color", color, "empty");  					
 		
   	} catch(ex){
   		res.status(500).json({error:"Something went wrong!", details:ex});
   		return;
-  	}	
+  	}
 
-    res.status(202).send();
+    res.status(202).end();
   });
+
+
 
 };
 
