@@ -8,18 +8,19 @@
 
 4) Run app.js as root, e.g. sudo node app.js
 
-5) From POSTMAN, SOAPUI, etc. send a POST request to port 3001 to the following API:
+5) From POSTMAN, SOAPUI, etc. send a POST request to port 3001 to the following APIs:
 
 
-http://IP:3001/sphero/shape/{shape}/color/{color}
+    - To make shapes: http://IP:3001/sphero/shape/{shape}/color/{color}
+    - To Change Colours: http://10.0.0.97:3001/sphero/color/{color}   - Notice it is color, not colour… This is just to be consistent with the Sphero internal APIs
 
+Supported shapes and colors:
 
-For example:
-http://IP:3001/sphero/shape/square/color/blue
+-	Colors: blue, pink, yellow, green, red, surprise (this is a random one every time)
+-	Shapes: Square, Triangle, Line (it goes north and comes back)
 
+That's it! Enjoying seeing your Sphero in Action via NodeJS...
 
-See your Sphero in Action via NodeJS...
+Any question or comment drop an email to: barack.dorman@gmail.com
 
-
-
-Any question or comment drop an email.
+Thanks for watching...
