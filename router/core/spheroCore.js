@@ -43,14 +43,14 @@ var move = function (shape, color) {
 
                     // First move North:
                     console.log("Rolling Sphero North");
-                    orb.color(BLUE);
+                    orb.color(color);
                     orb.roll(75, 0);//North
 
                     // Second move:
                     setTimeout(function () {
 
                         console.log("Rolling Sphero East");
-                        orb.color(PINK);
+                        orb.color(color);
                         orb.roll(75, 90);
 
                     }, nextWait * i++);
@@ -59,7 +59,7 @@ var move = function (shape, color) {
                     setTimeout(function () {
 
                         console.log("Rolling Sphero South");
-                        orb.color(YELLOW);
+                        orb.color(color);
                         orb.roll(75, 180);
 
                     }, nextWait * i++);
@@ -69,7 +69,7 @@ var move = function (shape, color) {
                     setTimeout(function () {
 
                         console.log("Rolling Sphero West and back to original point");
-                        orb.color(GREEN);
+                        orb.color(color);
                         orb.roll(75, 270);//West
 
                     }, nextWait * i++);
