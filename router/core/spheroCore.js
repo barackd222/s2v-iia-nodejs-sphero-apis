@@ -9,6 +9,7 @@ var PINK = "#FF1493";
 var YELLOW = "#FFFF00";
 var GREEN = "#00FF00";
 var RED = "#FF0000";
+var WHITE = "#FFFFFF";
 
 var TORK = 75;
 var NORTH = 0;
@@ -74,6 +75,52 @@ var move = function (shape, color) {
 
                     }, nextWait * i++);
 
+                } if (shape.toUpperCase() === "TRIANGLE") {
+
+                    // Let's make a square: 
+
+                    // First move North:
+                    console.log("Rolling Sphero 45 degrees");
+                    orb.color(color);
+                    orb.roll(75, 45);//45 degrees
+
+                    // Second move:
+                    setTimeout(function () {
+
+                        console.log("Rolling Sphero 135 degrees");
+                        orb.color(color);
+                        orb.roll(75, 135);//135 degrees
+
+                    }, nextWait * i++);
+
+                    // Third move:
+                    setTimeout(function () {
+
+                        console.log("Rolling Sphero 270 degrees");
+                        orb.color(color);
+                        orb.roll(75, 270);//270 degrees
+
+                    }, nextWait * i++);
+
+
+                } if (shape.toUpperCase() === "LINE") {
+
+                    // Let's make a square: 
+
+                    // First move North:
+                    console.log("Rolling Sphero North");
+                    orb.color(color);
+                    orb.roll(75, 0);//North
+
+                    // Second move:
+                    setTimeout(function () {
+
+                        console.log("Rolling Sphero South");
+                        orb.color(color);
+                        orb.roll(75, 180);
+
+                    }, nextWait * i++);
+
                 } else {
 
                     console.log("User has choose a different shape");
@@ -103,41 +150,14 @@ var move = function (shape, color) {
 
 }
 
-var color = function (color) {
+var color = function (theColor) {
 
     console.log("::SPHERO COLOURING::");
 
     orb.connect(function () {
 
-        switch (color.toUpperCase()) {
-
-            case "BLUE":
-                orb.color(BLUE);
-                break;
-
-            case "PINK":
-                orb.color(PINK);
-                break;
-
-            case "YELLOW":
-                orb.color(YELLOW);
-                break;
-
-            case "GREEN":
-                orb.color(GREEN);
-                break;
-
-            case "RED":
-                orb.color(RED);
-                break;
-
-            case "SURPRISE":
-                orb.color(getRandomColor());
-                break;
-
-            default:
-                console.log("Color not supported!!!");
-        }
+        // Setting The requested Color
+        orb.color(theColor);
 
         setTimeout(function () {
 
@@ -154,15 +174,50 @@ var color = function (color) {
 
 function commander(command, param1, param2) {
 
-    if (command.toUpperCase() === "SHAPE") {
+    var theColor = "";
+    var theShape = param1;
+    if (command.toUpperCase() === "SHAPE" || command.toUpperCase() === "COLOR") {
 
-        console.log("Command Sphero to make shapes...");
-        move(param1, param2);
+        switch (param2.toUpperCase()) {
+
+            case "BLUE":
+                theColor = BLUE;
+                break;
+
+            case "PINK":
+                theColor = PINK;
+                break;
+
+            case "YELLOW":
+                theColor = YELLOW;
+                break;
+
+            case "GREEN":
+                theColor = GREEN;
+                break;
+
+            case "RED":
+                theColor = RED;
+                break;
+
+            case "SURPRISE":
+                theColor = getRandomColor();
+                break;
+
+            default:
+                console.log("Color not supported!!! Using default...");
+                theColor = WHITE;
+        }
+
+    } if (command.toUpperCase() === "SHAPE") {
+
+        console.log("Command Sphero to make shapes... [" + theShape + "], [" + theColor + "]");
+        move(theShape, theColor);
 
     } else if (command.toUpperCase() === "COLOR") {
 
-        console.log("Command Sphero to change colouring...");
-        color(param1);
+        console.log("Command Sphero to change colouring... [" + theColor + "]");
+        color(theColor);
 
     } else {
 
