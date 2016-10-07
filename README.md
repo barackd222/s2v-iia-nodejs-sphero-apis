@@ -1,10 +1,10 @@
 # Speed to Value Workshop - Sphero In Action
 
-1) Create a folder where you want to download the NPM nodules
+1) Create a folder where you want to download the NPM nodules, for example:
 
 mkdir robot && cd robot
 
-2) Download the required modeules:
+2) Download the required modules:
 
 npm install sphero serialport
 
