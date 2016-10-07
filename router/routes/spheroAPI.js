@@ -33,7 +33,7 @@ var routes = function (app, queue) {
 			console.log("API + [" + req.url + "]");
 
 			// Let's change color:
-			queue.push(function () { sphero("color", color, "empty") });
+			queue.push(function () { sphero("color", "empty", color) });
 
 		} catch (ex) {
 			res.status(500).json({ error: "Something went wrong!", details: ex });

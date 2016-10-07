@@ -1,7 +1,8 @@
 "use strict";
 
 
-var sphero = require("../../../");
+//var sphero = require("../../../");
+var sphero = require("sphero");
 var orb = sphero("/dev/rfcomm0");
 
 var BLUE = "#0000FF";
