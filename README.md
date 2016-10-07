@@ -1,8 +1,13 @@
 # Speed to Value Workshop - Sphero In Action
 
-1) npm install express
+1) Create a folder where you want to download the NPM nodules
 
-2) Clone or download these files within Sphero/examples directory
+mkdir robot && cd robot
+
+2) Download the required modeules:
+
+npm install sphero serialport
+
 
 3) Connect your Bluetooth to your Sphero
 
